@@ -1,10 +1,10 @@
 package com.example.cs213project4.menu.coffee;
 
 public enum CupSize {
-    SHORT("SHORT"),
-    TALL("TALL"),
-    GRANDE("GRANDE"),
-    VENTI("VENTI");
+    Short("Short"),
+    Tall("Tall"),
+    Grande("Grande"),
+    Venti("Venti");
 
     private String cupsize;
 
