@@ -8,7 +8,6 @@ public enum AddIns {
     Mocha("Mocha");
 
     private String addIns;
-
     /**
      * Gives the string make.
      * @param addIns The make string.
@@ -17,4 +16,8 @@ public enum AddIns {
         this.addIns = addIns;
     }
 
+    public String getAddIns() {
+        return addIns;
     }
+
+}
