@@ -12,6 +12,8 @@ public class Main extends Application {
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 600, 600);
+        MainController mainController = fxmlLoader.getController();
+        mainController.setPrimaryStage(stage, scene);
         stage.setTitle("RU Donuts");
         stage.setResizable(false);
         stage.setScene(scene);
