@@ -11,7 +11,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.cs213project4.MainController">
    <center>
       <GridPane BorderPane.alignment="CENTER">
         <columnConstraints>
@@ -60,7 +60,7 @@
                         <Insets bottom="20.0" top="20.0" />
                      </VBox.margin>
                   </Button>
-                  <Button mnemonicParsing="false" prefHeight="300.0" prefWidth="460.0" text="Coffee">
+                  <Button fx:id="orderingCoffeeScreen" mnemonicParsing="false" onAction="#displaySecondView" prefHeight="300.0" prefWidth="460.0" text="Coffee">
                      <font>
                         <Font name="October Compressed Devanagari Heavy" size="46.0" />
                      </font>
