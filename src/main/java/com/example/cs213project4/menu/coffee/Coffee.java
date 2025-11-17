@@ -8,7 +8,6 @@ public class Coffee extends MenuItem {
     private CupSize size;
     private ArrayList<AddIns> addIns;
     final double addInPrice = 0.25;
-    private int coffeprice;
 
     public Coffee() {
         super(1);
@@ -22,17 +21,18 @@ public class Coffee extends MenuItem {
         this.addIns = addins;
     }
 
-    public void setCoffeprice(int coffeprice) {
-        this.coffeprice = coffeprice;
+    @Override
+    public String toString() {
+        if (addIns.size() != 0) {
+            return quantity + " " + size.toString() + " coffee with " + addIns + " for " + this.price();
+        }
+        return quantity + " " + size.toString() + " coffee for " + this.price();
+
     }
 
     @Override
     public double price() {
-        return (size.price() + addIns.size()*addInPrice) * quantity;
-    }
-
-    @Override
-    public String toString() {
-        return quantity + " " + size.toString() + " coffee with " + addIns;
+        double coffeeprice = (this.size.getCupPrice() + addIns.size()*addInPrice)*quantity;
+        return coffeeprice;
     }
 }
