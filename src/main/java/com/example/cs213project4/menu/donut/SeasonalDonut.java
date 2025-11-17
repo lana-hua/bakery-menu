@@ -4,7 +4,7 @@ import com.example.cs213project4.menu.MenuItem;
 
 public class SeasonalDonut extends MenuItem {
     private String flavor;
-    final double price = 2.49;
+    private static final double price = 2.49;
 
     public static final String PUMPKIN_SPICE = "Pumpkin Spice";
     public static final String APPLE_CRUMB = "Apple Crumb";
@@ -17,6 +17,10 @@ public class SeasonalDonut extends MenuItem {
 
     @Override
     public double price() {
+        return price * quantity;
+    }
+
+    public static double basePrice(){
         return price;
     }
 }

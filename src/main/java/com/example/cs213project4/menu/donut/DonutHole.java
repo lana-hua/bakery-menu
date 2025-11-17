@@ -4,7 +4,7 @@ import com.example.cs213project4.menu.MenuItem;
 
 public class DonutHole extends MenuItem {
     private String flavor;
-    final double price = 0.39;
+    private static final double price = 0.39;
 
     public static final String PLAIN = "Plain";
     public static final String JELLY = "Jelly";
@@ -28,6 +28,10 @@ public class DonutHole extends MenuItem {
     @Override
     public double price() {
         return price * quantity;
+    }
+
+    public static double basePrice(){
+        return price;
     }
 
     public String getFlavor(){

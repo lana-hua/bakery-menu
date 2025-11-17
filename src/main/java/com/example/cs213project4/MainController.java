@@ -1,12 +1,10 @@
 package com.example.cs213project4;
 
 import com.example.cs213project4.menu.MenuItem;
-import com.example.cs213project4.menu.Order;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
-import javafx.scene.control.Menu;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
@@ -67,8 +65,8 @@ public class MainController {
         } catch (IOException e) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("ERROR");
-            alert.setHeaderText("Loading donutOrdering.fxml.");
-            alert.setContentText("Couldn't load donutOrdering.fxml.");
+            alert.setHeaderText("Loading coffeeOrdering.fxml.");
+            alert.setContentText("Couldn't load coffeeOrdering.fxml.");
             alert.showAndWait();
         }
     }
