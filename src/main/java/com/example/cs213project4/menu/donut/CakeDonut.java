@@ -6,6 +6,10 @@ public class CakeDonut extends MenuItem {
     private String flavor;
     final double price = 2.19;
 
+    public static final String PLAIN = "Plain";
+    public static final String GLAZED = "Glazed";
+    public static final String CHOCOLATE_FROSTED = "Chocolate Frosted";
+
     public CakeDonut(int quantity, String flavor){
         super(quantity);
         this.flavor = flavor;

@@ -25,7 +25,7 @@ public class MainController {
     }
 
     @FXML
-    protected void displaySecondView() {
+    protected void displayCoffeeView() {
         Stage view1 = new Stage(); //if we want to use a new window
         BorderPane root;
         try {
@@ -48,6 +48,26 @@ public class MainController {
             alert.setTitle("ERROR");
             alert.setHeaderText("Loading coffeeOrdering.fxml.");
             alert.setContentText("Couldn't load coffeeOrdering.fxml.");
+            alert.showAndWait();
+        }
+    }
+
+    @FXML
+    protected void displayDonutView() {
+        Stage view1 = new Stage(); //if we want to use a new window
+        BorderPane root;
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("donutOrdering.fxml"));
+            root = (BorderPane) loader.load();
+            Scene scene = new Scene(root, 600, 600);
+            primaryStage.setScene(scene);
+            DonutController donutController = loader.getController();
+            donutController.setMainController(this, view1, primaryStage, primaryScene);
+        } catch (IOException e) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("ERROR");
+            alert.setHeaderText("Loading donutOrdering.fxml.");
+            alert.setContentText("Couldn't load donutOrdering.fxml.");
             alert.showAndWait();
         }
     }

@@ -10,16 +10,6 @@ public class DonutHole extends MenuItem {
     public static final String JELLY = "Jelly";
     public static final String CHOCOLATE = "Chocolate";
 
-    public DonutHole(){
-        super(1);
-        this.flavor = PLAIN;
-    }
-
-    public DonutHole(String flavor){
-        super(1);
-        this.flavor = flavor;
-    }
-
     public DonutHole(int quantity, String flavor){
         super(quantity);
         this.flavor = flavor;
