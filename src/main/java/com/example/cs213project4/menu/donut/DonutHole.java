@@ -41,4 +41,13 @@ public class DonutHole extends MenuItem {
     public static double basePrice(){
         return price;
     }
+
+    /**
+     * Returns a string of the donut hole order with flavor and price details.
+     * @return the string representation of the donut hole order
+     */
+    @Override
+    public String toString() {
+        return quantity + " " + flavor + " Donut Hole for " + this.price();
+    }
 }

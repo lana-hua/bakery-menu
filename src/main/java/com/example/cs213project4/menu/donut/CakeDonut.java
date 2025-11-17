@@ -41,4 +41,12 @@ public class CakeDonut extends MenuItem {
     public static double basePrice(){
         return price;
     }
+
+    /**
+     * Returns a string of the cake donut order with flavor and price details.
+     * @return the string representation of the cake donut order
+     */
+    public String toString() {
+        return quantity + " " + flavor + " Cake Donut for " + this.price();
+    }
 }

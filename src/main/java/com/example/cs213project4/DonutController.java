@@ -9,11 +9,10 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.ListView;
-import javafx.scene.control.Label;
+import javafx.scene.control.*;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
+
 
 /**
  * Controller class for handling donut ordering functionality.
@@ -36,7 +35,7 @@ public class DonutController {
 
     @FXML private Button addDonut;
     @FXML private Button removeDonut;
-    @FXML private Label subtotal;
+    @FXML private Text subtotal;
     @FXML private Button donutAddToOrder;
     @FXML private Button returnToMainMenu;
 
@@ -55,7 +54,7 @@ public class DonutController {
         quantity = FXCollections.observableArrayList(1,2,3,4,5,6,7,8,9,10);
         donutQuantity.setItems(quantity);
 
-        subtotal.setText("subtotal: $0.00");
+        subtotal.setText("Subtotal: $0.00");
     }
 
     /**
@@ -155,7 +154,9 @@ public class DonutController {
                 mainController.getCurrentOrder().add(donut);
             }
         }
+        confirmationDonutsAdded();
         orderedDonuts.getItems().clear();
+        calculateSubtotal();
     }
 
     /**
@@ -203,7 +204,7 @@ public class DonutController {
             String donutString = orderedDonuts.getItems().get(i);
             total += calculateSpecificPrice(donutString);
         }
-        subtotal.setText(String.format("subtotal: $%.2f", total));
+        subtotal.setText(String.format("Subtotal: $%.2f", total));
     }
 
     /**
@@ -235,6 +236,18 @@ public class DonutController {
         }
     }
 
+    /**
+     * Sends out a confirmation window that the donut order was added.
+     * Specifies the donut order in the confirmation window
+     */
+    private void confirmationDonutsAdded() {
+        System.out.println(mainController.getCurrentOrder());
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Donut Order Confirmation");
+        alert.setHeaderText("Add to Current Order");
+        alert.setContentText("Added " + orderedDonuts.getItems().size() + " donut items to current order.");
+        alert.showAndWait();
+    }
 
     @FXML
     /**

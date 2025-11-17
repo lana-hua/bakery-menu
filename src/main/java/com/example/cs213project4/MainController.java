@@ -68,8 +68,28 @@ public class MainController {
         } catch (IOException e) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("ERROR");
-            alert.setHeaderText("Loading coffeeOrdering.fxml.");
-            alert.setContentText("Couldn't load coffeeOrdering.fxml.");
+            alert.setHeaderText("Loading donutOrdering.fxml.");
+            alert.setContentText("Couldn't load donutOrdering.fxml.");
+            alert.showAndWait();
+        }
+    }
+
+    @FXML
+    protected void displaySandwichView() {
+        Stage view2 = new Stage();
+        BorderPane root;
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("sandwichOrdering.fxml"));
+            root = (BorderPane) loader.load();
+            Scene scene = new Scene(root, 600, 600);
+            primaryStage.setScene(scene);
+            SandwichController sandwichController = loader.getController();
+            sandwichController.setMainController(this, view2, primaryStage, primaryScene);
+        } catch (IOException e) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("ERROR");
+            alert.setHeaderText("Loading sandwichOrdering.fxml.");
+            alert.setContentText("Couldn't load sandwichOrdering.fxml.");
             alert.showAndWait();
         }
     }
