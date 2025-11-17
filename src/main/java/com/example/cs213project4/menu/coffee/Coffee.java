@@ -33,6 +33,6 @@ public class Coffee extends MenuItem {
 
     @Override
     public String toString() {
-        return quantity + size.toString() + "coffee with" + addIns;
+        return quantity + " " + size.toString() + " coffee with " + addIns;
     }
 }

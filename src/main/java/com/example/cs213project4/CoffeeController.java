@@ -56,15 +56,15 @@ public class CoffeeController {
 
     @FXML
     private void addAddIn() {
-        String selected = String.valueOf(alladdInListView.getSelectionModel().getSelectedItems());
-        if(!orderAddInListView.getItems().contains(selected)) {
+        String selected = alladdInListView.getSelectionModel().getSelectedItem();
+        if (selected != null && !orderAddInListView.getItems().contains(selected)) {
             orderAddInListView.getItems().add(selected);
         }
     }
 
     @FXML
     private void removeAddIn() {
-        String selected = String.valueOf(alladdInListView.getSelectionModel().getSelectedItems());
+        String selected = String.valueOf(alladdInListView.getSelectionModel().getSelectedItem());
         if(orderAddInListView.getItems().contains(selected)) {
             orderAddInListView.getItems().removeAll(selected);
         }
@@ -81,14 +81,13 @@ public class CoffeeController {
             return;
         }
 
-        ObservableList<String> addInStrings = orderAddInListView.getItems();
         ArrayList<AddIns> addInsList = new ArrayList<>();
 
-        for (String s : addInStrings) {
-            try {
-                // Map string to enum (adjust names if needed)
-                addInsList.add(AddIns.valueOf(s.toUpperCase().replace(" ", "_")));
-            } catch (IllegalArgumentException e) {
+        for (String s : orderAddInListView.getItems()) {
+            AddIns addIn = AddIns.fromString(s);
+            if (addIn != null) {
+                addInsList.add(addIn);
+            } else {
                 System.out.println("Invalid AddIn: " + s);
             }
         }
@@ -103,7 +102,7 @@ public class CoffeeController {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Coffee Order Confirmation");
         alert.setHeaderText("Added to Coffee Order");
-        alert.setContentText("Couldn't load currentOrder.fxml.");
+        alert.setContentText("Added " + newCoffee + " to current order.");
         alert.showAndWait();
     }
 
