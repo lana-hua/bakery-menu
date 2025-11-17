@@ -2,6 +2,11 @@ package com.example.cs213project4.menu.donut;
 
 import com.example.cs213project4.menu.MenuItem;
 
+/**
+ * Represents a donut hole menu item with specific flavors and pricing.
+ * Extends the MenuItem class to inherit the quantity functionality.
+ * @author Sharon Chen
+ */
 public class DonutHole extends MenuItem {
     private String flavor;
     private static final double price = 0.39;
@@ -10,32 +15,30 @@ public class DonutHole extends MenuItem {
     public static final String JELLY = "Jelly";
     public static final String CHOCOLATE = "Chocolate";
 
-    public DonutHole(){
-        super(1);
-        this.flavor = PLAIN;
-    }
-
-    public DonutHole(String flavor){
-        super(1);
-        this.flavor = flavor;
-    }
-
+    /**
+     * Constructs a DonutHole with specified quantity and flavor.
+     * @param quantity the number of donut holes
+     * @param flavor the flavor of the donut hole
+     */
     public DonutHole(int quantity, String flavor){
         super(quantity);
         this.flavor = flavor;
     }
 
+    /**
+     * Calculates the price of the donut hole order from base price and quantity.
+     * @return the total price for the donut hole order
+     */
     @Override
     public double price() {
         return price * quantity;
     }
 
+    /**
+     * Returns the base price of a singular donut hole.
+     * @return the base price of a single donut hole
+     */
     public static double basePrice(){
         return price;
     }
-
-    public String getFlavor(){
-        return flavor;
-    }
-
 }
