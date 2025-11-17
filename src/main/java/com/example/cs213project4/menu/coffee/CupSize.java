@@ -1,31 +1,21 @@
 package com.example.cs213project4.menu.coffee;
 
 public enum CupSize {
-    Short("Short"),
-    Tall("Tall"),
-    Grande("Grande"),
-    Venti("Venti");
+    Short(2.39),
+    Tall(2.99),
+    Grande(3.59),
+    Venti(4.19);
 
-    private String cupsize;
-    final double SHORT_PRICE = 2.39;
-    final double TALL_PRICE = 2.99;
-    final double GRANDE_PRICE = 3.59;
-    final double VENTI_PRICE = 4.19;
-
+    private final double price;
     /**
-     * Gives the string make.
-     * @param cupsize The make string.
+     * Gives the string size.
+     * @param price The size string.
      */
-    CupSize(String cupsize) {
-        this.cupsize = cupsize;
+    CupSize(double price) {
+        this.price = price;
     }
 
-    public double price(){
-        return switch (this) {
-            case Short -> SHORT_PRICE;
-            case Tall -> TALL_PRICE;
-            case Grande -> GRANDE_PRICE;
-            case Venti -> VENTI_PRICE;
-        };
+    public double getCupPrice() {
+        return price;
     }
 }
