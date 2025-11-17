@@ -74,7 +74,7 @@
                         <ImageView fitHeight="100.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
                      </graphic>
                   </Button>
-                  <Button contentDisplay="TOP" mnemonicParsing="false" prefHeight="250.0" prefWidth="250.0" text="Sandwich">
+                  <Button contentDisplay="TOP" mnemonicParsing="false" onAction="#displaySandwichView" prefHeight="250.0" prefWidth="250.0" text="Sandwich">
                      <font>
                         <Font name="October Compressed Devanagari Heavy" size="25.0" />
                      </font>
