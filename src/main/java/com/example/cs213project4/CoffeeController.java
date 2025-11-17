@@ -133,7 +133,7 @@ public class CoffeeController {
         CupSize size = CupSize.valueOf(stringSize);
 
         Coffee newCoffee = new Coffee(quantity, size, addInsList);
-        mainController.getCurrentOrder().add(newCoffee);
+        mainController.getCurrentOrder().addItem(newCoffee);
         confirmationCoffeeAdded(newCoffee);
     }
 
@@ -187,7 +187,7 @@ public class CoffeeController {
     public void displayMain() {
         //stage.close(); //close the window.
         primaryStage.setScene(primaryScene);
-        primaryStage.show();
+        primaryStage.setTitle("Main Menu");
         stage.close(); //close the window.
 
     }
