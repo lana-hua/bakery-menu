@@ -15,8 +15,6 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
-import java.util.ArrayList;
-
 /**
  * Controller class for handling donut ordering functionality.
  * Manages the donut ordering view and interactions.
@@ -154,7 +152,7 @@ public class DonutController {
             String donutString = orderedDonuts.getItems().get(i);
             MenuItem donut = createDonut(donutString);
             if (donut != null){
-                mainController.getcurrentOrder().add(donut);
+                mainController.getCurrentOrder().add(donut);
             }
         }
         orderedDonuts.getItems().clear();
