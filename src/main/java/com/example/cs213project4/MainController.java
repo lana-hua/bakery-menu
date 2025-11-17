@@ -1,9 +1,6 @@
 package com.example.cs213project4;
 
-import com.example.cs213project4.menu.MenuItem;
 import com.example.cs213project4.menu.Order;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -12,7 +9,6 @@ import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 public class MainController {
     private Stage primaryStage; //the reference of the main window.
@@ -96,4 +92,24 @@ public class MainController {
         }
     }
 
+    @FXML
+    protected void displayPlacedOrder() {
+        Stage view4 = new Stage();
+        BorderPane root;
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("placedOrders.fxml"));
+            root = (BorderPane) loader.load();
+            Scene scene = new Scene(root, 600, 600);
+            primaryStage.setScene(scene);
+            primaryStage.setTitle("Placed Order Screen");
+            OrdersPlacedController ordersPlacedController = loader.getController();
+            ordersPlacedController.setMainController(this, view4, primaryStage, primaryScene);
+        } catch (IOException e) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("ERROR");
+            alert.setHeaderText("Loading placedOrders.fxml.");
+            alert.setContentText("Couldn't load placedOrders.fxml.");
+            alert.showAndWait();
+        }
+    }
 }

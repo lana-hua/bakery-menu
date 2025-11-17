@@ -1,6 +1,5 @@
 package com.example.cs213project4.menu;
 
-import com.example.cs213project4.menu.MenuItem;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
