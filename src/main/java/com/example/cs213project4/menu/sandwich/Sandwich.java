@@ -37,7 +37,15 @@ public class Sandwich extends MenuItem {
                 addOnsPrice += 0.30;
             }
         }
-
         return (proteinPrice + addOnsPrice) * quantity;
+    }
+
+    @Override
+    public String toString() {
+        if (!addOns.isEmpty()) {
+            return quantity + " " + proteinType.toString() + " " + breadType.toString() + " Sandwich with " + addOns + " for " + this.price();
+        }
+        return quantity + " " + proteinType.toString() + " " + breadType.toString()  + " Sandwich for " + this.price();
+
     }
 }

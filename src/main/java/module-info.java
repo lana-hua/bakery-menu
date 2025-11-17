@@ -12,4 +12,6 @@ module com.example.cs213project4 {
     opens com.example.cs213project4.menu.donut to javafx.fxml;
     exports com.example.cs213project4.menu.coffee;
     opens com.example.cs213project4.menu.coffee to javafx.fxml;
+    exports com.example.cs213project4.menu.sandwich;
+    opens com.example.cs213project4.menu.sandwich to javafx.fxml;
 }

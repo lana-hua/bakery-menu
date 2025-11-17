@@ -20,9 +20,9 @@ public enum AddOns {
         return addOn;
     }
 
-    public static AddIns fromString(String text) {
-        for (AddIns a : AddIns.values()) {
-            if (a.getAddIns().equalsIgnoreCase(text)) {
+    public static AddOns fromString(String text) {
+        for (AddOns a : AddOns.values()) {
+            if (a.getAddOn().equalsIgnoreCase(text)) {
                 return a;
             }
         }

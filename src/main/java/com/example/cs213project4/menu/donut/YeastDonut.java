@@ -44,4 +44,12 @@ public class YeastDonut extends MenuItem {
     public static double basePrice(){
         return price;
     }
+
+    /**
+     * Returns a string of the yeast donut order with flavor and price details.
+     * @return the string representation of the yeast donut order
+     */
+    public String toString() {
+        return quantity + " " + flavor + " Yeast Donut for " + this.price();
+    }
 }

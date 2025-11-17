@@ -40,4 +40,12 @@ public class SeasonalDonut extends MenuItem {
     public static double basePrice(){
         return price;
     }
+
+    /**
+     * Returns a string of the seasonal donut order with flavor and price details.
+     * @return the string representation of the seasonal donut order
+     */
+    public String toString() {
+        return quantity + " " + flavor + " Seasonal Donut for " + this.price();
+    }
 }

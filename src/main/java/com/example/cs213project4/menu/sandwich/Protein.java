@@ -15,11 +15,12 @@ public enum Protein {
         this.price = price;
     }
 
-    public String getProtein() {
-        return protein;
-    }
-
     public double getPrice() {
         return price;
+    }
+
+    @Override
+    public String toString() {
+        return protein;
     }
 }
