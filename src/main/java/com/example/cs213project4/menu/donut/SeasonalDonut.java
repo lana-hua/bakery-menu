@@ -6,6 +6,10 @@ public class SeasonalDonut extends MenuItem {
     private String flavor;
     final double price = 2.49;
 
+    public static final String PUMPKIN_SPICE = "Pumpkin Spice";
+    public static final String APPLE_CRUMB = "Apple Crumb";
+    public static final String MAPLE = "Maple";
+
     public SeasonalDonut(int quantity, String flavor){
         super(quantity);
         this.flavor = flavor;
