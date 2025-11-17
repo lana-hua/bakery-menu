@@ -128,7 +128,7 @@ public class SandwichController {
         Protein protein = Protein.valueOf(proteinInput);
 
         Sandwich newSandwich = new Sandwich(quantity, bread, protein, addOnsList);
-        mainController.getCurrentOrder().add(newSandwich);
+        mainController.getCurrentOrder().addItem(newSandwich);
         confirmationSandwichAdded(newSandwich);
     }
 

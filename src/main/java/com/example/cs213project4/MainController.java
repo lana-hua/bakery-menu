@@ -73,7 +73,7 @@ public class MainController {
 
     @FXML
     protected void displaySandwichView() {
-        Stage view2 = new Stage();
+        Stage view3 = new Stage();
         BorderPane root;
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("sandwichOrdering.fxml"));
@@ -81,7 +81,7 @@ public class MainController {
             Scene scene = new Scene(root, 600, 600);
             primaryStage.setScene(scene);
             SandwichController sandwichController = loader.getController();
-            sandwichController.setMainController(this, view2, primaryStage, primaryScene);
+            sandwichController.setMainController(this, view3, primaryStage, primaryScene);
         } catch (IOException e) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("ERROR");
@@ -93,7 +93,7 @@ public class MainController {
 
     @FXML
     protected void displayCurrentOrder() {
-        Stage view3 = new Stage();
+        Stage view4 = new Stage();
         BorderPane root;
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("currentOrder.fxml"));
@@ -102,7 +102,7 @@ public class MainController {
             primaryStage.setScene(scene);
             primaryStage.setTitle("Current Order Screen");
             CurrentOrderController currentOrderController = loader.getController();
-            currentOrderController.setMainController(this, view3, primaryStage, primaryScene);
+            currentOrderController.setMainController(this, view4, primaryStage, primaryScene);
         } catch (IOException e) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("ERROR");
@@ -114,7 +114,7 @@ public class MainController {
 
     @FXML
     protected void displayPlacedOrder() {
-        Stage view4 = new Stage();
+        Stage view5 = new Stage();
         BorderPane root;
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("placedOrders.fxml"));
@@ -123,7 +123,7 @@ public class MainController {
             primaryStage.setScene(scene);
             primaryStage.setTitle("Placed Order Screen");
             OrdersPlacedController ordersPlacedController = loader.getController();
-            ordersPlacedController.setMainController(this, view4, primaryStage, primaryScene);
+            ordersPlacedController.setMainController(this, view5, primaryStage, primaryScene);
         } catch (IOException e) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("ERROR");
