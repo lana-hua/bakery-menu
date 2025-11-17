@@ -37,7 +37,7 @@
                         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                      </VBox.margin>
                   </Button>
-                  <Button mnemonicParsing="false" prefHeight="91.0" prefWidth="239.0" text="Orders Placed">
+                  <Button mnemonicParsing="false" onAction="#displayPlacedOrder" prefHeight="91.0" prefWidth="239.0" text="Orders Placed">
                      <font>
                         <Font name="October Compressed Devanagari Heavy" size="30.0" />
                      </font>

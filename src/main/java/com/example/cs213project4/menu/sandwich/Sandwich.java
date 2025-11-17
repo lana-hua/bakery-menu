@@ -1,8 +1,6 @@
 package com.example.cs213project4.menu.sandwich;
 
 import com.example.cs213project4.menu.MenuItem;
-import com.example.cs213project4.menu.coffee.AddIns;
-import com.example.cs213project4.menu.coffee.CupSize;
 
 import java.util.ArrayList;
 
