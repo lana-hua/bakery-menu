@@ -114,6 +114,8 @@ public class CoffeeController {
         //stage.close(); //close the window.
         primaryStage.setScene(primaryScene);
         primaryStage.show();
+        stage.close(); //close the window.
+
     }
 
 

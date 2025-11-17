@@ -3,6 +3,7 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
@@ -38,32 +39,49 @@
             <HBox prefHeight="276.0" prefWidth="791.0">
                <children>
                   <ListView fx:id="donutFlavors" prefHeight="200.0" prefWidth="200.0" />
-                  <VBox prefHeight="195.0" prefWidth="100.0">
+                  <VBox prefHeight="180.0" prefWidth="115.0">
                      <children>
-                        <ComboBox fx:id="donutQuantity" prefWidth="150.0" />
-                        <Button fx:id="addDonut" mnemonicParsing="false" text="Button" />
-                        <Button fx:id="removeDonut" mnemonicParsing="false" text="Button" />
+                        <ComboBox fx:id="donutQuantity" prefHeight="25.0" prefWidth="103.0">
+                           <VBox.margin>
+                              <Insets top="-5.0" />
+                           </VBox.margin></ComboBox>
+                        <Button fx:id="addDonut" mnemonicParsing="false" onAction="#addDonut" prefHeight="25.0" prefWidth="123.0" text="&gt;&gt;">
+                           <VBox.margin>
+                              <Insets top="10.0" />
+                           </VBox.margin></Button>
+                        <Button fx:id="removeDonut" mnemonicParsing="false" onAction="#removeDonut" prefHeight="25.0" prefWidth="153.0" text="&lt;&lt;">
+                           <VBox.margin>
+                              <Insets top="10.0" />
+                           </VBox.margin></Button>
                      </children>
-                     <padding>
-                        <Insets top="50.0" />
-                     </padding>
                      <HBox.margin>
                         <Insets bottom="20.0" left="100.0" right="100.0" top="20.0" />
                      </HBox.margin>
+                     <padding>
+                        <Insets top="50.0" />
+                     </padding>
                   </VBox>
                   <ListView fx:id="orderedDonuts" prefHeight="200.0" prefWidth="200.0" />
                </children>
                <padding>
                   <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
                </padding>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
             </HBox>
             <HBox prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <Button fx:id="returnToMainMenu" mnemonicParsing="false" text="Return to Main Menu">
+                  <Label fx:id="subtotal" prefHeight="17.0" prefWidth="120.0" text="subtotal: ">
+                     <HBox.margin>
+                        <Insets left="100.0" top="24.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Button fx:id="donutAddToOrder" mnemonicParsing="false" onAction="#addDonutOrder" text="Place Donut Order">
                      <HBox.margin>
                         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                      </HBox.margin></Button>
-                  <Button fx:id="donutAddToOrder" mnemonicParsing="false" text="Place Donut Order">
+                  <Button fx:id="returnToMainMenu" mnemonicParsing="false" onAction="#displayMain" text="Return to Main Menu">
                      <HBox.margin>
                         <Insets top="20.0" />
                      </HBox.margin>
