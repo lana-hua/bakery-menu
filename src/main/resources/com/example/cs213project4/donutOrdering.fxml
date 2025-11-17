@@ -11,7 +11,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.cs213project4.DonutController">
     <top>
         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Order Donuts!" textAlignment="CENTER" wrappingWidth="735.159423828125" BorderPane.alignment="CENTER">
             <font>
@@ -27,7 +27,7 @@
          <children>
             <HBox prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <ComboBox prefHeight="31.0" prefWidth="160.0" promptText="Select Donut Type">
+                  <ComboBox fx:id="donutType" prefHeight="31.0" prefWidth="160.0" promptText="Select Donut Type">
                      <HBox.margin>
                         <Insets bottom="50.0" left="50.0" right="50.0" top="50.0" />
                      </HBox.margin>
@@ -37,12 +37,12 @@
             </HBox>
             <HBox prefHeight="276.0" prefWidth="791.0">
                <children>
-                  <ListView prefHeight="200.0" prefWidth="200.0" />
+                  <ListView fx:id="donutFlavors" prefHeight="200.0" prefWidth="200.0" />
                   <VBox prefHeight="195.0" prefWidth="100.0">
                      <children>
-                        <ComboBox prefWidth="150.0" />
-                        <Button mnemonicParsing="false" text="Button" />
-                        <Button mnemonicParsing="false" text="Button" />
+                        <ComboBox fx:id="donutQuantity" prefWidth="150.0" />
+                        <Button fx:id="addDonut" mnemonicParsing="false" text="Button" />
+                        <Button fx:id="removeDonut" mnemonicParsing="false" text="Button" />
                      </children>
                      <padding>
                         <Insets top="50.0" />
@@ -51,7 +51,7 @@
                         <Insets bottom="20.0" left="100.0" right="100.0" top="20.0" />
                      </HBox.margin>
                   </VBox>
-                  <ListView prefHeight="200.0" prefWidth="200.0" />
+                  <ListView fx:id="orderedDonuts" prefHeight="200.0" prefWidth="200.0" />
                </children>
                <padding>
                   <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
@@ -59,11 +59,11 @@
             </HBox>
             <HBox prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <Button mnemonicParsing="false" text="Return to Main Menu">
+                  <Button fx:id="returnToMainMenu" mnemonicParsing="false" text="Return to Main Menu">
                      <HBox.margin>
                         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                      </HBox.margin></Button>
-                  <Button mnemonicParsing="false" text="Place Donut Order">
+                  <Button fx:id="donutAddToOrder" mnemonicParsing="false" text="Place Donut Order">
                      <HBox.margin>
                         <Insets top="20.0" />
                      </HBox.margin>
