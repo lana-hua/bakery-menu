@@ -17,6 +17,11 @@ import javafx.stage.Stage;
 
 import java.util.ArrayList;
 
+/**
+ * Controller class for handling donut ordering functionality.
+ * Manages the donut ordering view and interactions.
+ * @author Sharon Chen
+ */
 public class DonutController {
     private MainController mainController;
     private Stage stage;
@@ -37,6 +42,9 @@ public class DonutController {
     @FXML private Button donutAddToOrder;
     @FXML private Button returnToMainMenu;
 
+    /**
+     * Initializes the controller class.
+     */
     @FXML
     private void initialize() {
         donutTypeList = FXCollections.observableArrayList("Cake Donut", "Donut Hole", "Seasonal Donut", "Yeast Donut");
@@ -52,6 +60,13 @@ public class DonutController {
         subtotal.setText("subtotal: $0.00");
     }
 
+    /**
+     * Sets the main controller reference for communication between controllers.
+     * @param controller the main controller instance
+     * @param stage the current stage
+     * @param primaryStage the primary application stage
+     * @param primaryScene the main menu scene
+     */
     public void setMainController (MainController controller,
                                    Stage stage,
                                    Stage primaryStage,
@@ -62,6 +77,10 @@ public class DonutController {
         this.primaryScene = primaryScene;
     }
 
+    /**
+     * Updates the available flavors based on the selected donut type.
+     * @param type the selected donut type
+     */
     private void updateFlavors(String type) {
         if (type == null) return;
 
@@ -75,16 +94,19 @@ public class DonutController {
                 donutFlavors.setItems(holeFlavors);
             }
             case "Seasonal Donut" -> {
-                ObservableList<String> seasonalFlavors = FXCollections.observableArrayList("Pumpkin Spice", "Apple Crumb", "Maple");
+                ObservableList<String> seasonalFlavors = FXCollections.observableArrayList("Pumpkin Spice", "Spooky");
                 donutFlavors.setItems(seasonalFlavors);
             }
             case "Yeast Donut" -> {
-                ObservableList<String> yeastFlavors = FXCollections.observableArrayList("Plain", "Glazed", "Chocolate Frosted", "Vanilla Frosted", "Powdered Sugar", "Cinnamon Sugar");
+                ObservableList<String> yeastFlavors = FXCollections.observableArrayList("Plain", "Glazed", "Chocolate Frosted", "Strawberry Frosted", "Powdered Sugar", "Cinnamon Sugar");
                 donutFlavors.setItems(yeastFlavors);
             }
         }
     }
 
+    /**
+     * Adds a donut to the current order display and prevents duplicate donut type and flavor combinations.
+     */
     @FXML
     private void addDonut() {
         String type = donutType.getValue();
@@ -107,6 +129,9 @@ public class DonutController {
         calculateSubtotal();
     }
 
+    /**
+     * Removes the selected donut from the current order display.
+     */
     @FXML
     private void removeDonut() {
         int index = orderedDonuts.getSelectionModel().getSelectedIndex();
@@ -116,6 +141,9 @@ public class DonutController {
         }
     }
 
+    /**
+     * Adds all donuts in the current order to the main order list and converts the display strings to MenuItem objects.
+     */
     @FXML
     private void addDonutOrder() {
         if(orderedDonuts.getItems().isEmpty()){
@@ -132,6 +160,11 @@ public class DonutController {
         orderedDonuts.getItems().clear();
     }
 
+    /**
+     * Creates a MenuItem object from a donut display string.
+     * @param donutString the display string representing the donut
+     * @return the created MenuItem object, or null if the parsing fails
+     */
     private MenuItem createDonut(String donutString){
         String[] parts = donutString.split(" ");
 
@@ -163,6 +196,9 @@ public class DonutController {
         }
     }
 
+    /**
+     * Calculates and updates the subtotal for the current donut order.
+     */
     private void calculateSubtotal() {
         double total = 0.0;
         for (int i = 0; i < orderedDonuts.getItems().size(); i++) {
@@ -172,6 +208,11 @@ public class DonutController {
         subtotal.setText(String.format("subtotal: $%.2f", total));
     }
 
+    /**
+     * Calculates the price for a specific donut from its display string.
+     * @param donutString the display string represent the donut
+     * @return the calculated price for the donut 
+     */
     private double calculateSpecificPrice(String donutString) {
         String[] parts = donutString.split(" ");
         String type = parts[parts.length - 3] + " " + parts[parts.length - 2];
