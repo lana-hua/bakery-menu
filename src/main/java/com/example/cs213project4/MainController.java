@@ -1,6 +1,9 @@
 package com.example.cs213project4;
 
 import com.example.cs213project4.menu.MenuItem;
+import com.example.cs213project4.menu.Order;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -14,8 +17,8 @@ import java.util.ArrayList;
 public class MainController {
     private Stage primaryStage; //the reference of the main window.
     private Scene primaryScene; //the ref. of the scene set to the primaryStage
-    public Orders orders;
-    public ArrayList<MenuItem> currentOrder = new ArrayList<>();
+    public ArrayList<Order> orders = new ArrayList<>();
+    public ObservableList<MenuItem> currentOrder = FXCollections.observableArrayList();;
 
     /**
      * Set the reference of the stage and scene before show()
@@ -27,7 +30,7 @@ public class MainController {
         primaryScene = scene;
     }
 
-    public ArrayList<MenuItem> getcurrentOrder() {
+    public ObservableList<MenuItem> getCurrentOrder() {
         return currentOrder;
     }
 
@@ -53,7 +56,7 @@ public class MainController {
 
     @FXML
     protected void displayDonutView() {
-        Stage view1 = new Stage();
+        Stage view2 = new Stage();
         BorderPane root;
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("donutOrdering.fxml"));
@@ -61,7 +64,7 @@ public class MainController {
             Scene scene = new Scene(root, 600, 600);
             primaryStage.setScene(scene);
             DonutController donutController = loader.getController();
-            donutController.setMainController(this, view1, primaryStage, primaryScene);
+            donutController.setMainController(this, view2, primaryStage, primaryScene);
         } catch (IOException e) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("ERROR");
@@ -73,7 +76,7 @@ public class MainController {
 
     @FXML
     protected void displayCurrentOrder() {
-        Stage view1 = new Stage();
+        Stage view3 = new Stage();
         BorderPane root;
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("currentOrder.fxml"));
@@ -81,7 +84,7 @@ public class MainController {
             Scene scene = new Scene(root, 600, 600);
             primaryStage.setScene(scene);
             CurrentOrderController currentOrderController = loader.getController();
-            currentOrderController.setMainController(this, view1, primaryStage, primaryScene);
+            currentOrderController.setMainController(this, view3, primaryStage, primaryScene);
         } catch (IOException e) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("ERROR");
