@@ -20,4 +20,14 @@ public enum AddIns {
         return addIns;
     }
 
+    public static AddIns fromString(String text) {
+        for (AddIns a : AddIns.values()) {
+            if (a.getAddIns().equalsIgnoreCase(text)) {
+                return a;
+            }
+        }
+        return null;
+    }
+
+
 }
