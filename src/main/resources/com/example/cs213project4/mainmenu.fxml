@@ -29,7 +29,7 @@
                         <Insets bottom="20.0" top="20.0" />
                      </VBox.margin>
                   </ImageView>
-                  <Button mnemonicParsing="false" prefHeight="91.0" prefWidth="238.0" text="Current Order">
+                  <Button mnemonicParsing="false" onAction="#displayCurrentOrder" prefHeight="91.0" prefWidth="238.0" text="Current Order">
                      <font>
                         <Font name="October Compressed Devanagari Heavy" size="30.0" />
                      </font>
@@ -60,7 +60,7 @@
                         <Insets bottom="20.0" top="20.0" />
                      </VBox.margin>
                   </Button>
-                  <Button fx:id="orderingCoffeeScreen" mnemonicParsing="false" onAction="#displaySecondView" prefHeight="300.0" prefWidth="460.0" text="Coffee">
+                  <Button fx:id="orderingCoffeeScreen" mnemonicParsing="false" onAction="#displayCoffeeView" prefHeight="300.0" prefWidth="460.0" text="Coffee">
                      <font>
                         <Font name="October Compressed Devanagari Heavy" size="46.0" />
                      </font>
