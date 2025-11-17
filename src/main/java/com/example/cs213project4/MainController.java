@@ -17,8 +17,7 @@ import java.util.ArrayList;
 public class MainController {
     private Stage primaryStage; //the reference of the main window.
     private Scene primaryScene; //the ref. of the scene set to the primaryStage
-    public ArrayList<Order> orders = new ArrayList<>();
-    public ObservableList<MenuItem> currentOrder = FXCollections.observableArrayList();;
+    public Order currentOrder = new Order();;
 
     /**
      * Set the reference of the stage and scene before show()
@@ -30,7 +29,7 @@ public class MainController {
         primaryScene = scene;
     }
 
-    public ObservableList<MenuItem> getCurrentOrder() {
+    public Order getCurrentOrder() {
         return currentOrder;
     }
 
@@ -43,6 +42,7 @@ public class MainController {
             root = (BorderPane) loader.load();
             Scene scene = new Scene(root, 600, 600);
             primaryStage.setScene(scene);
+            primaryStage.setTitle("Coffee Ordering Screen");
             CoffeeController coffeeController = loader.getController();
             coffeeController.setMainController(this, view1, primaryStage, primaryScene);
         } catch (IOException e) {
@@ -63,6 +63,7 @@ public class MainController {
             root = (BorderPane) loader.load();
             Scene scene = new Scene(root, 600, 600);
             primaryStage.setScene(scene);
+            primaryStage.setTitle("Donut Ordering Screen");
             DonutController donutController = loader.getController();
             donutController.setMainController(this, view2, primaryStage, primaryScene);
         } catch (IOException e) {
@@ -83,6 +84,7 @@ public class MainController {
             root = (BorderPane) loader.load();
             Scene scene = new Scene(root, 600, 600);
             primaryStage.setScene(scene);
+            primaryStage.setTitle("Current Order Screen");
             CurrentOrderController currentOrderController = loader.getController();
             currentOrderController.setMainController(this, view3, primaryStage, primaryScene);
         } catch (IOException e) {

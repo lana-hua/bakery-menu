@@ -24,7 +24,7 @@ public class Coffee extends MenuItem {
     @Override
     public String toString() {
         if (!addIns.isEmpty()) {
-            return quantity + " " + size.toString() + " coffee with " + addIns + " for " + this.price();
+            return quantity + " " + size.toString() + " coffee with " + addIns + " for $" + this.price();
         }
         return quantity + " " + size.toString() + " coffee for " + this.price();
 

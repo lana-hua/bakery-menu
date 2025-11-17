@@ -71,7 +71,7 @@
          <children>
             <HBox alignment="CENTER" prefHeight="33.0" prefWidth="600.0">
                <children>
-                  <Button alignment="CENTER" mnemonicParsing="false" prefHeight="26.0" prefWidth="120.0" text="Remove Selected">
+                  <Button alignment="CENTER" mnemonicParsing="false" onAction="#removeMenuItem" prefHeight="26.0" prefWidth="120.0" text="Remove Selected">
                      <HBox.margin>
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                      </HBox.margin>

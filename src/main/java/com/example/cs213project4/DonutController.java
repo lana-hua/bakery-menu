@@ -152,7 +152,7 @@ public class DonutController {
             String donutString = orderedDonuts.getItems().get(i);
             MenuItem donut = createDonut(donutString);
             if (donut != null){
-                mainController.getCurrentOrder().add(donut);
+                mainController.getCurrentOrder().addItem(donut);
             }
         }
         orderedDonuts.getItems().clear();
@@ -243,6 +243,7 @@ public class DonutController {
     public void displayMain() {
         //stage.close(); //close the window.
         primaryStage.setScene(primaryScene);
+        primaryStage.setTitle("Main Menu");
         primaryStage.show();
     }
 }

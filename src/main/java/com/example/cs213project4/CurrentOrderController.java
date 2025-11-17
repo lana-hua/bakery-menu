@@ -42,16 +42,28 @@ public class CurrentOrderController {
         this.stage = stage;
         this.primaryStage = primaryStage;
         this.primaryScene = primaryScene;
-        currentOrderOutput.setItems(mainController.getCurrentOrder());
-        mainController.getCurrentOrder().addListener((ListChangeListener<MenuItem>) c -> updatePriceFields());
+        currentOrderOutput.setItems(mainController.getCurrentOrder().getItems());
+        mainController.getCurrentOrder().getItems().addListener((ListChangeListener<MenuItem>) c -> updatePriceFields());
         updatePriceFields();
 
     }
 
+    /**
+     * Removes a MenuItem from the current order.
+     * Makes sure that the current order actually contains the MenuItem.
+     */
+    @FXML
+    private void removeMenuItem() {
+        MenuItem selected = currentOrderOutput.getSelectionModel().getSelectedItem();
+        currentOrderOutput.getItems().remove(selected);
+    }
+
     private double getSubtotal() {
-        return mainController.getCurrentOrder().stream()
-                .mapToDouble(MenuItem::price)
-                .sum();
+        double subtotal = 0.0;
+        for (MenuItem item : mainController.getCurrentOrder().getItems()) {
+            subtotal += item.price();
+        }
+        return subtotal;
     }
 
     private double getSalesTax() {
@@ -68,13 +80,14 @@ public class CurrentOrderController {
         totalTextField.setText(String.format("$%.2f", getTotal()));
     }
 
-    @FXML
     /**
-     * Navigate back to the main view.
+     * Navigate back to the main view
      */
+    @FXML
     public void displayMain() {
         //stage.close(); //close the window.
         primaryStage.setScene(primaryScene);
+        primaryStage.setTitle("Main Menu");
         primaryStage.show();
     }
 }
