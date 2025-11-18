@@ -181,17 +181,13 @@ public class CoffeeController {
         subtotal.setText(String.format("Subtotal: $%.2f", tempCoffee.price()));
     }
 
-    @FXML
     /**
      * Navigate back to the main view.
      */
+    @FXML
     public void displayMain() {
-        //stage.close(); //close the window.
         primaryStage.setScene(primaryScene);
         primaryStage.setTitle("Main Menu");
         stage.close(); //close the window.
-
     }
-
-
 }

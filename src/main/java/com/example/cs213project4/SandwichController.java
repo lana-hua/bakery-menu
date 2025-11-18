@@ -17,6 +17,12 @@ import javafx.stage.Stage;
 
 import java.util.ArrayList;
 
+
+/**
+ * Controller class for handling sandwich ordering functionality.
+ * Manages the sandwich ordering view and interactions.
+ * @Author Sharon Chen
+ */
 public class SandwichController {
     private MainController mainController;
     private Stage stage;
@@ -35,6 +41,10 @@ public class SandwichController {
 
     @FXML private Text subtotal;
 
+    /**
+     * Initializes the controller.
+     * Sets up the ComboBoxes and the ListView for the sandwich ordering view.
+     */
     @FXML
     private void initialize() {
         breadList = FXCollections.observableArrayList("Bagel", "Sourdough", "Wheat Bread");
@@ -176,15 +186,13 @@ public class SandwichController {
         subtotal.setText(String.format("Subtotal: $%.2f", tempSandwich.price()));
     }
 
-    @FXML
     /**
      * Navigate back to the main view.
      */
+    @FXML
     public void displayMain() {
-        //stage.close(); //close the window.
         primaryStage.setScene(primaryScene);
         primaryStage.show();
         stage.close(); //close the window.
-
     }
 }

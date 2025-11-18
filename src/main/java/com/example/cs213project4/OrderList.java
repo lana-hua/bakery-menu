@@ -8,11 +8,20 @@ import javafx.collections.ObservableList;
 import java.io.File;
 import java.io.PrintWriter;
 
+/**
+ * Represents a collection of placed orders.
+ * Maintains a list of orders, the total cost of all orders.
+ * Allows user to add, remove, and export orders.
+ * @Author Lana Huang
+ */
 public class OrderList {
     private int numOfOrders = 0;
     private ObservableList<Order> orders;
     private double totalCost;
 
+    /**
+     * Constructs a new and empty OrderList.
+     */
     public OrderList() {
         this.orders = FXCollections.observableArrayList();
 
@@ -21,28 +30,47 @@ public class OrderList {
         });
     }
 
+    /**
+     * Returns the total cost of all orders.
+     * @return total cost of all orders
+     */
     public double getTotalCost() {
         return totalCost;
     }
 
+    /**
+     * Returns the observable list of orders.
+     * @return ObservableList of Order objects
+     */
     public ObservableList<Order> getOrders() {
         return orders;
     }
 
-    public int getNumOfOrders() {
-        return numOfOrders;
-    }
-
-    public ObservableList<Order> getItems() {
-        return orders;
-    }
-
+    /**
+     * Adds a new order to the list.
+     * Updates the total cost and increments the number of orders.
+     * @param order the Order to add
+     */
     public void addOrder(Order order) {
         orders.add(order);
         totalCost = calculateTotalPrice();
         numOfOrders++;
 
     }
+
+    /**
+     * Removes an order from the list.
+     * @param order the Order to remove
+     */
+    public void removeItem(Order order) {
+        orders.remove(order);
+    }
+
+    /**
+     * Exports all orders to a text file.
+     * Prints the order number, menu items in order, and total cost.
+     * @param file the File to write the orders to
+     */
     public void exportToFile(File file) {
         try (PrintWriter writer = new PrintWriter(file)) {
 
@@ -69,11 +97,10 @@ public class OrderList {
         }
     }
 
-
-    public void removeItem(Order order) {
-        orders.remove(order);
-    }
-
+    /**
+     * Calculates the total cost of all orders in the list.
+     * @return the total cost of all orders
+     */
     private double calculateTotalPrice() {
         double total = 0.0;
         for (int i = 0; i < orders.size(); i++) {
@@ -81,6 +108,4 @@ public class OrderList {
         }
         return total;
     }
-
-
 }

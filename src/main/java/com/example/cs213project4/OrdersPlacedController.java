@@ -12,6 +12,13 @@ import javafx.stage.Stage;
 
 import java.io.File;
 
+
+/**
+ * Controller for the "Placed Orders" view.
+ * Displays a list of all placed orders and the items in a selected order.
+ * Allows employee to order to a file and canceling/removing individual orders.
+ * @Author Lana Huang
+ */
 public class OrdersPlacedController {
     private MainController mainController;
     private Stage stage;
@@ -24,6 +31,10 @@ public class OrdersPlacedController {
     @FXML private ListView<Order> listOfOrders;
     @FXML private ListView<MenuItem> orderDetails;
 
+    /**
+     * Initializes the controller.
+     * Sets up the price fields.
+     */
     public void initialize() {
         total.setEditable(false);
         orderTotal.setEditable(false);
@@ -60,6 +71,9 @@ public class OrdersPlacedController {
         });
     }
 
+    /**
+     * Exports all placed orders to a text file chosen by the user.
+     */
     @FXML
     private void exportOrders() {
         FileChooser fileChooser = new FileChooser();
@@ -78,6 +92,9 @@ public class OrdersPlacedController {
         }
     }
 
+    /**
+     * Cancels the selected order.
+     */
     @FXML
     private void cancelOrder() {
         Order selected = listOfOrders.getSelectionModel().getSelectedItem();
@@ -87,10 +104,12 @@ public class OrdersPlacedController {
         }
         mainController.getListOfOrders().removeItem(selected);
 
-        // Update price fields
         updatePriceFields();
     }
 
+    /**
+     * Updates the displayed total costs in the ListView.
+     */
     private void updatePriceFields() {
         total.setText(String.format("$%.2f", mainController.getListOfOrders().getTotalCost()));
 
@@ -101,11 +120,10 @@ public class OrdersPlacedController {
     }
 
     /**
-     * Navigate back to the main view
+     * Navigate back to the main view.
      */
     @FXML
     public void displayMain() {
-        //stage.close(); //close the window.
         primaryStage.setScene(primaryScene);
         primaryStage.setTitle("Main Menu");
         primaryStage.show();
