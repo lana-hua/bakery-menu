@@ -12,6 +12,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
 
 /**
@@ -39,6 +41,8 @@ public class DonutController {
     @FXML private Button donutAddToOrder;
     @FXML private Button returnToMainMenu;
 
+    @FXML private ImageView donutImage;
+
     /**
      * Initializes the controller class.
      */
@@ -55,6 +59,9 @@ public class DonutController {
         donutQuantity.setItems(quantity);
 
         subtotal.setText("Subtotal: $0.00");
+
+        donutType.setOnAction(event -> updateImage());
+
     }
 
     /**
@@ -73,6 +80,26 @@ public class DonutController {
         this.primaryStage = primaryStage;
         this.primaryScene = primaryScene;
     }
+
+    private void updateImage() {
+        String selected = donutType.getValue();
+
+        if (selected == null) return;
+
+        String fileName = switch (selected) {
+            case "Cake Donut" -> "cakedonut.png";
+            case "Donut Hole" -> "donuthole.png";
+            case "Seasonal Donut" -> "seasonaldonut.png";
+            case "Yeast Donut" -> "yeastdonut.png";
+            default -> null;
+        };
+
+        if (fileName != null) {
+            Image img = new Image(getClass().getResource("/images/" + fileName).toString());
+            donutImage.setImage(img);
+        }
+    }
+
 
     /**
      * Updates the available flavors based on the selected donut type.
