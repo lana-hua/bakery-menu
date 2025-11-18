@@ -64,7 +64,7 @@
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </VBox.margin>
                      <graphic>
-                        <ImageView fitHeight="79.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="89.0" fitWidth="101.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../../../images/menudonut.png" />
                            </image></ImageView>
@@ -78,7 +78,10 @@
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </VBox.margin>
                      <graphic>
-                        <ImageView fitHeight="72.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView fitHeight="98.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../images/menucoffee.png" />
+                           </image></ImageView>
                      </graphic>
                   </Button>
                   <Button contentDisplay="TOP" mnemonicParsing="false" onAction="#displaySandwichView" prefHeight="250.0" prefWidth="250.0" style="-fx-background-color: fbc9e4;" text="Sandwich" textFill="#ed7b8d">
@@ -89,7 +92,10 @@
                         <Insets bottom="10.0" left="5.0" right="5.0" top="5.0" />
                      </VBox.margin>
                      <graphic>
-                        <ImageView fitHeight="77.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView fitHeight="77.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../images/menusandwich.png" />
+                           </image></ImageView>
                      </graphic>
                   </Button>
                </children>
