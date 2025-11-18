@@ -10,6 +10,12 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+/**
+ * Main controller class for the application.
+ * Handles navigation between different ordering screens (coffee, donut, sandwich), the current order view, and the list of placed orders.
+ * Holds the references to the current order and the list of orders.
+ * @author Lana Huang
+ */
 public class MainController {
     private Stage primaryStage; //the reference of the main window.
     private Scene primaryScene; //the ref. of the scene set to the primaryStage
@@ -26,14 +32,26 @@ public class MainController {
         primaryScene = scene;
     }
 
+    /**
+     * Returns the list of all placed orders.
+     * @return the OrderList of completed orders
+     */
     public OrderList getListOfOrders() {
         return listOfOrders;
     }
 
+    /**
+     * Returns the current active order.
+     * @return the current Order
+     */
     public Order getCurrentOrder() {
         return currentOrder;
     }
 
+    /**
+     * Displays the Coffee Ordering view.
+     * If there is an issue it pulls up an Alert Popup
+     */
     @FXML
     protected void displayCoffeeView() {
         Stage view1 = new Stage();
@@ -55,6 +73,10 @@ public class MainController {
         }
     }
 
+    /**
+     * Displays the Donut Ordering view.
+     * If there is an issue it pulls up an Alert Popup
+     */
     @FXML
     protected void displayDonutView() {
         Stage view2 = new Stage();
@@ -76,6 +98,10 @@ public class MainController {
         }
     }
 
+    /**
+     * Displays the Sandwich Ordering view.
+     * If there is an issue it pulls up an Alert Popup
+     */
     @FXML
     protected void displaySandwichView() {
         Stage view3 = new Stage();
@@ -96,6 +122,10 @@ public class MainController {
         }
     }
 
+    /**
+     * Displays the Current Order view.
+     * If there is an issue it pulls up an Alert Popup
+     */
     @FXML
     protected void displayCurrentOrder() {
         Stage view4 = new Stage();
@@ -117,6 +147,10 @@ public class MainController {
         }
     }
 
+    /**
+     * Displays the Placed Order view.
+     * If there is an issue it pulls up an Alert Popup
+     */
     @FXML
     protected void displayPlacedOrder() {
         Stage view5 = new Stage();

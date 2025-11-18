@@ -12,6 +12,11 @@ import javafx.scene.control.Menu;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
+/**
+ * Controller class for displaying and managing the current order.
+ * Manages the coffee ordering view and interactions.
+ * @author Lana Huang
+ */
 public class CurrentOrderController {
     private MainController mainController;
     private Stage stage;
@@ -20,7 +25,6 @@ public class CurrentOrderController {
     private static CurrentOrderController instance;
     private double taxRate = 0.06625;
 
-
     @FXML private ListView<MenuItem> currentOrderOutput;
 
     @FXML private TextField subTotalTextField;
@@ -28,6 +32,10 @@ public class CurrentOrderController {
     @FXML private TextField totalTextField;
 
 
+    /**
+     * This method initializes the CurrentOrder controller display.
+     * It sets up all the TextFields for subtotal, sales-tax total, and total.
+     */
     public void initialize() {
         subTotalTextField.setEditable(false);
         salesTaxTextField.setEditable(false);
@@ -38,6 +46,13 @@ public class CurrentOrderController {
         totalTextField.setText("$0.00");
     }
 
+    /**
+     * Sets the main controller reference for communication between controllers.
+     * @param controller the main controller instance
+     * @param stage the current stage
+     * @param primaryStage the primary application stage
+     * @param primaryScene the main menu scene
+     */
     public void setMainController (MainController controller,
                                    Stage stage,
                                    Stage primaryStage,
@@ -62,26 +77,26 @@ public class CurrentOrderController {
         currentOrderOutput.getItems().remove(selected);
     }
 
+    /**
+     * Adds the current order to the list of completed orders.
+     */
     @FXML
     private void addOrder() {
         if (mainController.currentOrder.getItems().isEmpty()) {
             return;
         }
 
-        // Deep copy the order
         Order orderCopy = new Order(mainController.currentOrder);
-
-        // Add copied order to the list
         mainController.listOfOrders.addOrder(orderCopy);
-
-        // Reset current order
         mainController.currentOrder = new Order();
-
-        // Refresh UI binding
         currentOrderOutput.setItems(mainController.currentOrder.getItems());
         updatePriceFields();
     }
 
+    /**
+     * Calculates the subtotal of all MenuItems in the current order.
+     * @return the subtotal price
+     */
     private double getSubtotal() {
         double subtotal = 0.0;
         for (MenuItem item : mainController.getCurrentOrder().getItems()) {
@@ -90,14 +105,27 @@ public class CurrentOrderController {
         return subtotal;
     }
 
+    /**
+     * Calculates the sales tax for the current order.
+     * @return the sales tax
+     */
     private double getSalesTax() {
         return getSubtotal() * taxRate;
     }
 
+
+    /**
+     * Calculates the total price for the current order, including sales tax.
+     * @return the total price
+     */
     private double getTotal() {
         return getSubtotal() + getSalesTax();
     }
 
+    /**
+     * Updates the subtotal, sales tax, and total TextFields
+     * based on the current order contents.
+     */
     private void updatePriceFields() {
         subTotalTextField.setText(String.format("$%.2f", getSubtotal()));
         salesTaxTextField.setText(String.format("$%.2f", getSalesTax()));
@@ -109,7 +137,6 @@ public class CurrentOrderController {
      */
     @FXML
     public void displayMain() {
-        //stage.close(); //close the window.
         primaryStage.setScene(primaryScene);
         primaryStage.setTitle("Main Menu");
         primaryStage.show();
