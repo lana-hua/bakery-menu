@@ -30,22 +30,25 @@ public class Sandwich extends MenuItem {
 
         for (int i = 0; i < addOns.size(); i++) {
             AddOns addOn = addOns.get(i);
-            if (addOn == AddOns.Cheese){
-                addOnsPrice +=  1.00;
-            }
-            else{
+            if (addOn == AddOns.Cheese) {
+                addOnsPrice += 1.00;
+            } else {
                 addOnsPrice += 0.30;
             }
         }
-        return (proteinPrice + addOnsPrice) * quantity;
+
+        double total = (proteinPrice + addOnsPrice) * quantity;
+        return Math.round(total * 100.0) / 100.0;
     }
 
     @Override
     public String toString() {
-        if (!addOns.isEmpty()) {
-            return quantity + " " + proteinType.toString() + " " + breadType.toString() + " Sandwich with " + addOns + " for $" + this.price();
-        }
-        return quantity + " " + proteinType.toString() + " " + breadType.toString()  + " Sandwich for $" + this.price();
+        String formattedPrice = String.format("%.2f", this.price());
 
+        if (!addOns.isEmpty()) {
+            return quantity + " " + proteinType.toString() + " " + breadType.toString() + " Sandwich with " + addOns + " for $" + formattedPrice;
+        }
+
+        return quantity + " " + proteinType.toString() + " " + breadType.toString() + " Sandwich for $" + formattedPrice;
     }
 }

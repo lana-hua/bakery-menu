@@ -30,7 +30,8 @@ public class SeasonalDonut extends MenuItem {
      */
     @Override
     public double price() {
-        return price * quantity;
+        double total = price * quantity;
+        return Math.round(total * 100.0) / 100.0;
     }
 
     /**
@@ -46,10 +47,12 @@ public class SeasonalDonut extends MenuItem {
      * @return the string representation of the seasonal donut order
      */
     public String toString() {
+        String formattedPrice = String.format("%.2f", this.price());
+
         if (quantity == 1) {
-            return quantity + " " + flavor + " Seasonal Donut for $" + this.price();
+            return quantity + " " + flavor + " Seasonal Donut for $" + formattedPrice;
         } else {
-            return quantity + " " + flavor + " Seasonal Donuts for $" + this.price();
+            return quantity + " " + flavor + " Seasonal Donuts for $" + formattedPrice;
         }
     }
 }

@@ -6,11 +6,11 @@ import javafx.collections.ListChangeListener;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
 import javafx.scene.control.ListView;
-import javafx.scene.control.Menu;
 import javafx.scene.control.TextField;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
-import java.util.List;
+import java.io.File;
 
 public class OrdersPlacedController {
     private MainController mainController;
@@ -58,6 +58,37 @@ public class OrdersPlacedController {
                 updatePriceFields();
             }
         });
+    }
+
+    @FXML
+    private void exportOrders() {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Save Orders");
+
+        fileChooser.setInitialFileName("orders.txt");
+
+        fileChooser.getExtensionFilters().add(
+                new FileChooser.ExtensionFilter("Text Files", "*.txt")
+        );
+
+        File file = fileChooser.showSaveDialog(stage);
+
+        if (file != null) {
+            mainController.getListOfOrders().exportToFile(file);
+        }
+    }
+
+    @FXML
+    private void cancelOrder() {
+        Order selected = listOfOrders.getSelectionModel().getSelectedItem();
+
+        if (selected == null) {
+            return;
+        }
+        mainController.getListOfOrders().removeItem(selected);
+
+        // Update price fields
+        updatePriceFields();
     }
 
     private void updatePriceFields() {

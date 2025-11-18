@@ -31,7 +31,8 @@ public class DonutHole extends MenuItem {
      */
     @Override
     public double price() {
-        return price * quantity;
+        double total = price * quantity;
+        return Math.round(total * 100.0) / 100.0;
     }
 
     /**
@@ -48,10 +49,12 @@ public class DonutHole extends MenuItem {
      */
     @Override
     public String toString() {
+        String formattedPrice = String.format("%.2f", this.price());
+
         if (quantity == 1) {
-            return quantity + " " + flavor + " Donut Hole for $" + this.price();
+            return quantity + " " + flavor + " Donut Hole for $" + formattedPrice;
         } else {
-            return quantity + " " + flavor + " Donut Holes for $" + this.price();
+            return quantity + " " + flavor + " Donut Holes for $" + formattedPrice;
         }
     }
 }

@@ -23,16 +23,18 @@ public class Coffee extends MenuItem {
 
     @Override
     public String toString() {
+        String formattedPrice = String.format("%.2f", this.price());
+
         if (!addIns.isEmpty()) {
-            return quantity + " " + size.toString() + " coffee with " + addIns + " for $" + this.price();
+            return quantity + " " + size.toString() + " coffee with " + addIns + " for $" + formattedPrice;
         }
-        return quantity + " " + size.toString() + " coffee for " + this.price();
+        return quantity + " " + size.toString() + " coffee for " + formattedPrice;
 
     }
 
     @Override
     public double price() {
-        double coffeeprice = (this.size.getCupPrice() + addIns.size()*addInPrice)*quantity;
-        return coffeeprice;
+        double coffeePrice = (this.size.getCupPrice() + addIns.size() * addInPrice) * quantity;
+        return Math.round(coffeePrice * 100.0) / 100.0;
     }
 }
