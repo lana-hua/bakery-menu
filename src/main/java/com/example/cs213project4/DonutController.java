@@ -81,6 +81,9 @@ public class DonutController {
         this.primaryScene = primaryScene;
     }
 
+    /**
+     * Dynamically updates Image depending on donut type in ComboBox
+     */
     private void updateImage() {
         String selected = donutType.getValue();
 
@@ -275,10 +278,10 @@ public class DonutController {
         alert.showAndWait();
     }
 
-    @FXML
     /**
      * Navigate back to the main view.
      */
+    @FXML
     public void displayMain() {
         //stage.close(); //close the window.
         primaryStage.setScene(primaryScene);

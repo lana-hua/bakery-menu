@@ -1,7 +1,9 @@
 package com.example.cs213project4.menu.sandwich;
 
-import com.example.cs213project4.menu.coffee.AddIns;
-
+/**
+ * Enum of the Sandwich Protein types that includes all the possible bread types for the sandwich
+ * @Author Sharon Chen
+ */
 public enum Protein {
     Beef("Beef", 12.99),
     Chicken("Chicken", 10.99),
