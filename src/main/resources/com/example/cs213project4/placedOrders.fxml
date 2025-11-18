@@ -10,20 +10,13 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.cs213project4.OrdersPlacedController">
-    <center>
-        <ListView fx:id="currentOrderOutput" prefHeight="390.0" prefWidth="580.0" BorderPane.alignment="CENTER">
-            <BorderPane.margin>
-                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-            </BorderPane.margin>
-        </ListView>
-    </center>
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" style="-fx-background-color: fff9f1;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.cs213project4.OrdersPlacedController">
     <top>
         <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
             <children>
-                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Placed  Orders!" textAlignment="CENTER" wrappingWidth="375.37646484375">
+                <Text fill="#ed7b8d" strokeType="OUTSIDE" strokeWidth="0.0" text="Placed  Orders!" textAlignment="CENTER" wrappingWidth="375.37646484375">
                     <font>
-                        <Font name="October Condensed Devanagari Black" size="51.0" />
+                        <Font name="Rockwell" size="51.0" />
                     </font>
                     <HBox.margin>
                         <Insets top="50.0" />
@@ -31,17 +24,12 @@
                 </Text>
                 <VBox alignment="CENTER_RIGHT" prefHeight="113.0" prefWidth="63.0">
                     <children>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Sub-Total">
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Total">
                             <VBox.margin>
                                 <Insets bottom="10.0" left="10.0" right="10.0" top="15.0" />
                             </VBox.margin>
                         </Text>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Sales Tax" textAlignment="RIGHT" wrappingWidth="70.431640625">
-                            <VBox.margin>
-                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                            </VBox.margin>
-                        </Text>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Total" textAlignment="RIGHT" wrappingWidth="63.548828125">
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Order Total" textAlignment="RIGHT" wrappingWidth="70.431640625">
                             <VBox.margin>
                                 <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                             </VBox.margin>
@@ -50,17 +38,16 @@
                 </VBox>
                 <VBox alignment="CENTER_RIGHT" prefHeight="113.0" prefWidth="124.0">
                     <children>
-                        <TextField fx:id="subTotalTextField">
+                        <TextField fx:id="total" style="-fx-background-color: fbc9e4;">
                             <VBox.margin>
                                 <Insets top="10.0" />
                             </VBox.margin>
                         </TextField>
-                        <TextField fx:id="salesTaxTextField">
+                        <TextField fx:id="orderTotal" style="-fx-background-color: fbc9e4;">
                             <VBox.margin>
                                 <Insets bottom="10.0" top="10.0" />
                             </VBox.margin>
                         </TextField>
-                        <TextField fx:id="totalTextField" />
                     </children>
                 </VBox>
             </children>
@@ -71,20 +58,31 @@
             <children>
                 <HBox alignment="CENTER" prefHeight="33.0" prefWidth="600.0">
                     <children>
-                        <Button alignment="CENTER" mnemonicParsing="false" prefHeight="26.0" prefWidth="120.0" text="Remove Selected">
+                        <Button fx:id="cancelOrderSelected" alignment="CENTER" mnemonicParsing="false" prefHeight="26.0" prefWidth="120.0" style="-fx-background-color: ffa3c3;" text="Cancel Selected">
                             <HBox.margin>
                                 <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                             </HBox.margin>
                         </Button>
-                        <Button alignment="CENTER" mnemonicParsing="false" prefHeight="26.0" prefWidth="120.0" text="Place Order">
+                        <Button fx:id="exportOrders" alignment="CENTER" mnemonicParsing="false" prefHeight="26.0" prefWidth="120.0" style="-fx-background-color: ffa3c3;" text="Export Orders">
                             <HBox.margin>
                                 <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                             </HBox.margin>
                         </Button>
                     </children>
                 </HBox>
-                <Button mnemonicParsing="false" onAction="#displayMain" prefHeight="58.0" prefWidth="600.0" text="Return to Main Menu" />
+                <Button mnemonicParsing="false" onAction="#displayMain" prefHeight="58.0" prefWidth="600.0" style="-fx-background-color: ffa3c3;" text="Return to Main Menu" />
             </children>
         </VBox>
     </bottom>
+   <center>
+      <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0" BorderPane.alignment="CENTER">
+         <children>
+              <ListView fx:id="listOfOrders" prefHeight="389.0" prefWidth="188.0" style="-fx-background-color: fbc9e4;" />
+            <ListView fx:id="orderDetails" prefHeight="394.0" prefWidth="443.0" style="-fx-background-color: fbc9e4;" />
+         </children>
+         <BorderPane.margin>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </BorderPane.margin>
+      </HBox>
+   </center>
 </BorderPane>

@@ -1,10 +1,14 @@
 package com.example.cs213project4;
 
 import com.example.cs213project4.menu.MenuItem;
+import com.example.cs213project4.menu.Order;
+import javafx.collections.FXCollections;
 import javafx.collections.ListChangeListener;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
 import javafx.scene.control.ListView;
+import javafx.scene.control.Menu;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
@@ -18,6 +22,7 @@ public class CurrentOrderController {
 
 
     @FXML private ListView<MenuItem> currentOrderOutput;
+
     @FXML private TextField subTotalTextField;
     @FXML private TextField salesTaxTextField;
     @FXML private TextField totalTextField;
@@ -55,6 +60,26 @@ public class CurrentOrderController {
     private void removeMenuItem() {
         MenuItem selected = currentOrderOutput.getSelectionModel().getSelectedItem();
         currentOrderOutput.getItems().remove(selected);
+    }
+
+    @FXML
+    private void addOrder() {
+        if (mainController.currentOrder.getItems().isEmpty()) {
+            return;
+        }
+
+        // Deep copy the order
+        Order orderCopy = new Order(mainController.currentOrder);
+
+        // Add copied order to the list
+        mainController.listOfOrders.addOrder(orderCopy);
+
+        // Reset current order
+        mainController.currentOrder = new Order();
+
+        // Refresh UI binding
+        currentOrderOutput.setItems(mainController.currentOrder.getItems());
+        updatePriceFields();
     }
 
     private double getSubtotal() {

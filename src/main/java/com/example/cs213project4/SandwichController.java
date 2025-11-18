@@ -119,8 +119,6 @@ public class SandwichController {
             AddOns addOn = AddOns.fromString(s);
             if (addOn != null) {
                 addOnsList.add(addOn);
-            } else {
-                System.out.println("Invalid AddIn: " + s);
             }
         }
 
@@ -138,7 +136,6 @@ public class SandwichController {
      * @param sandwich the given sandwich order that's been added to the Current Order
      */
     private void confirmationSandwichAdded(Sandwich sandwich) {
-        System.out.println(mainController.getCurrentOrder());
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Sandwich Order Confirmation");
         alert.setHeaderText("Add to Current Order");

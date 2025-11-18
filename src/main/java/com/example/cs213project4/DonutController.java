@@ -241,7 +241,6 @@ public class DonutController {
      * Specifies the donut order in the confirmation window
      */
     private void confirmationDonutsAdded() {
-        System.out.println(mainController.getCurrentOrder());
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Donut Order Confirmation");
         alert.setHeaderText("Add to Current Order");

@@ -13,7 +13,8 @@ import java.io.IOException;
 public class MainController {
     private Stage primaryStage; //the reference of the main window.
     private Scene primaryScene; //the ref. of the scene set to the primaryStage
-    public Order currentOrder = new Order();;
+    public OrderList listOfOrders = new OrderList();
+    public Order currentOrder = new Order();
 
     /**
      * Set the reference of the stage and scene before show()
@@ -23,6 +24,10 @@ public class MainController {
     public void setPrimaryStage(Stage stage, Scene scene) {
         primaryStage = stage;
         primaryScene = scene;
+    }
+
+    public OrderList getListOfOrders() {
+        return listOfOrders;
     }
 
     public Order getCurrentOrder() {
