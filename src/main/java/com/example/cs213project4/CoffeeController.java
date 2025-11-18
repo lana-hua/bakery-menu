@@ -124,8 +124,6 @@ public class CoffeeController {
             AddIns addIn = AddIns.fromString(s);
             if (addIn != null) {
                 addInsList.add(addIn);
-            } else {
-                System.out.println("Invalid AddIn: " + s);
             }
         }
 
@@ -143,7 +141,6 @@ public class CoffeeController {
      * @param coffee the given coffee order that's been added to the Current Order
      */
     private void confirmationCoffeeAdded(Coffee coffee) {
-        System.out.println(mainController.getCurrentOrder());
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Coffee Order Confirmation");
         alert.setHeaderText("Added to Coffee Order");

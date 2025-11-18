@@ -86,29 +86,19 @@
       <ColorAdjust />
    </effect>
    <top>
-      <HBox alignment="BOTTOM_CENTER" prefHeight="178.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
          <children>
+            <ImageView fitHeight="136.0" fitWidth="144.0" pickOnBounds="true">
+               <image>
+                  <Image url="@../../../images/coffee.png" />
+               </image>
+            </ImageView>
             <Text fill="#ed7b8d" strokeType="OUTSIDE" strokeWidth="0.0" text="Order Coffee!">
                <font>
-                  <Font name="October Condensed Devanagari Black" size="67.0" />
+                  <Font name="Rockwell" size="60.0" />
                </font>
-               <HBox.margin>
-                  <Insets bottom="10.0" />
-               </HBox.margin>
             </Text>
-            <HBox prefHeight="100.0" prefWidth="103.0">
-               <children>
-                  <ImageView fitHeight="180.0" fitWidth="186.0" pickOnBounds="true">
-                     <image>
-                        <Image url="@../../../images/coffee.png" />
-                     </image>
-                     <HBox.margin>
-                        <Insets />
-                     </HBox.margin>
-                  </ImageView>
-               </children>
-            </HBox>
          </children>
-      </HBox>
+      </VBox>
    </top>
 </BorderPane>

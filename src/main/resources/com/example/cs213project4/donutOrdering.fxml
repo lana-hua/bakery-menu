@@ -4,6 +4,7 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.ListView?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
@@ -11,56 +12,42 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.cs213project4.DonutController">
-    <top>
-        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Order Donuts!" textAlignment="CENTER" wrappingWidth="735.159423828125" BorderPane.alignment="CENTER">
-            <font>
-                <Font name="October Condensed Devanagari Heavy" size="67.0" />
-            </font>
-            <BorderPane.margin>
-                <Insets top="50.0" />
-            </BorderPane.margin>
-        </Text>
-    </top>
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" style="-fx-background-color: fff9f1;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.cs213project4.DonutController">
    <center>
       <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
          <children>
-            <HBox prefHeight="79.0" prefWidth="600.0">
+            <HBox alignment="CENTER" prefHeight="34.0" prefWidth="600.0">
                <children>
-                  <ComboBox fx:id="donutType" prefHeight="31.0" prefWidth="160.0" promptText="Select Donut Type">
+                  <ComboBox fx:id="donutType" prefHeight="31.0" prefWidth="160.0" promptText="Select Donut Type" style="-fx-background-color: ffa3c3;">
                      <HBox.margin>
-                        <Insets bottom="50.0" left="100.0" right="50.0" top="50.0" />
+                        <Insets />
                      </HBox.margin>
                   </ComboBox>
-                  <ImageView fitHeight="71.0" fitWidth="128.0" pickOnBounds="true" preserveRatio="true" />
                </children>
             </HBox>
-            <HBox alignment="CENTER" prefHeight="295.0" prefWidth="600.0">
+            <HBox alignment="CENTER" prefHeight="295.0" prefWidth="600.0" spacing="10.0">
                <children>
-                  <ListView fx:id="donutFlavors" prefHeight="200.0" prefWidth="200.0" />
-                  <VBox prefHeight="180.0" prefWidth="115.0">
+                  <ListView fx:id="donutFlavors" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: fbc9e4;" />
+                  <VBox alignment="CENTER" prefHeight="180.0" prefWidth="115.0">
                      <children>
-                        <ComboBox fx:id="donutQuantity" prefHeight="25.0" prefWidth="103.0">
+                        <ComboBox fx:id="donutQuantity" prefHeight="26.0" prefWidth="131.0" promptText="Quantity" style="-fx-background-color: ffa3c3;">
                            <VBox.margin>
                               <Insets top="-5.0" />
                            </VBox.margin></ComboBox>
-                        <Button fx:id="addDonut" mnemonicParsing="false" onAction="#addDonut" prefHeight="25.0" prefWidth="123.0" text="&gt;&gt;">
+                        <Button fx:id="addDonut" mnemonicParsing="false" onAction="#addDonut" prefHeight="25.0" prefWidth="123.0" style="-fx-background-color: ffa3c3;" text="&gt;&gt;">
                            <VBox.margin>
                               <Insets top="10.0" />
                            </VBox.margin></Button>
-                        <Button fx:id="removeDonut" mnemonicParsing="false" onAction="#removeDonut" prefHeight="25.0" prefWidth="153.0" text="&lt;&lt;">
+                        <Button fx:id="removeDonut" mnemonicParsing="false" onAction="#removeDonut" prefHeight="25.0" prefWidth="153.0" style="-fx-background-color: ffa3c3;" text="&lt;&lt;">
                            <VBox.margin>
                               <Insets top="10.0" />
                            </VBox.margin></Button>
                      </children>
                      <HBox.margin>
-                        <Insets bottom="20.0" left="100.0" right="100.0" top="20.0" />
+                        <Insets />
                      </HBox.margin>
-                     <padding>
-                        <Insets top="50.0" />
-                     </padding>
                   </VBox>
-                  <ListView fx:id="orderedDonuts" prefHeight="200.0" prefWidth="200.0" />
+                  <ListView fx:id="orderedDonuts" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: fbc9e4;" />
                </children>
                <padding>
                   <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
@@ -69,25 +56,37 @@
                   <Insets />
                </VBox.margin>
             </HBox>
-            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+            <HBox alignment="CENTER" prefHeight="57.0" prefWidth="600.0" spacing="10.0">
                <children>
                   <Text fx:id="subtotal" strokeType="OUTSIDE" strokeWidth="0.0" text="Subtotal: $0.00">
                      <HBox.margin>
                         <Insets />
                      </HBox.margin>
                   </Text>
-                  <Button fx:id="donutAddToOrder" mnemonicParsing="false" onAction="#addDonutOrder" text="Place Donut Order">
-                     <HBox.margin>
-                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-                     </HBox.margin></Button>
-                  <Button fx:id="returnToMainMenu" mnemonicParsing="false" onAction="#displayMain" text="Return to Main Menu">
+                  <Button fx:id="donutAddToOrder" mnemonicParsing="false" onAction="#addDonutOrder" style="-fx-background-color: ffa3c3;" text="Place Donut Order">
                      <HBox.margin>
                         <Insets />
-                     </HBox.margin>
-                  </Button>
+                     </HBox.margin></Button>
                </children>
             </HBox>
+            <Button fx:id="returnToMainMenu" mnemonicParsing="false" onAction="#displayMain" prefHeight="53.0" prefWidth="600.0" style="-fx-background-color: ffa3c3;" text="Return to Main Menu" />
          </children>
       </VBox>
    </center>
+   <top>
+      <VBox alignment="BOTTOM_CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../images/cakedonut.png" />
+               </image>
+            </ImageView>
+              <Text fill="#ed7b8d" strokeType="OUTSIDE" strokeWidth="0.0" text="Order Donuts!" textAlignment="CENTER" wrappingWidth="503.159423828125">
+                  <font>
+                      <Font name="Rockwell" size="67.0" />
+                  </font>
+              </Text>
+         </children>
+      </VBox>
+   </top>
 </BorderPane>

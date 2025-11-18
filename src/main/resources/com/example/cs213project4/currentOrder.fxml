@@ -10,9 +10,9 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.cs213project4.CurrentOrderController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" style="-fx-background-color: fff9f1;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.cs213project4.CurrentOrderController">
    <center>
-      <ListView fx:id="currentOrderOutput" prefHeight="390.0" prefWidth="580.0" BorderPane.alignment="CENTER">
+      <ListView fx:id="currentOrderOutput" prefHeight="390.0" prefWidth="580.0" style="-fx-background-color: fbc9e4;" BorderPane.alignment="CENTER">
          <BorderPane.margin>
             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
          </BorderPane.margin>
@@ -21,9 +21,9 @@
    <top>
       <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Current  Order!" textAlignment="CENTER" wrappingWidth="375.37646484375">
+            <Text fill="#ed7b8d" strokeType="OUTSIDE" strokeWidth="0.0" text="Current  Order!" textAlignment="CENTER" wrappingWidth="375.37646484375">
                <font>
-                  <Font name="October Condensed Devanagari Black" size="51.0" />
+                  <Font name="Rockwell" size="51.0" />
                </font>
                <HBox.margin>
                   <Insets top="50.0" />
@@ -50,17 +50,17 @@
             </VBox>
             <VBox alignment="CENTER_RIGHT" prefHeight="113.0" prefWidth="124.0">
                <children>
-                  <TextField fx:id="subTotalTextField">
+                  <TextField fx:id="subTotalTextField" style="-fx-background-color: fbc9e4;">
                      <VBox.margin>
                         <Insets top="10.0" />
                      </VBox.margin>
                   </TextField>
-                  <TextField fx:id="salesTaxTextField">
+                  <TextField fx:id="salesTaxTextField" style="-fx-background-color: fbc9e4;">
                      <VBox.margin>
                         <Insets bottom="10.0" top="10.0" />
                      </VBox.margin>
                   </TextField>
-                  <TextField fx:id="totalTextField" />
+                  <TextField fx:id="totalTextField" style="-fx-background-color: fbc9e4;" />
                </children>
             </VBox>
          </children>
@@ -71,19 +71,19 @@
          <children>
             <HBox alignment="CENTER" prefHeight="33.0" prefWidth="600.0">
                <children>
-                  <Button alignment="CENTER" mnemonicParsing="false" onAction="#removeMenuItem" prefHeight="26.0" prefWidth="120.0" text="Remove Selected">
+                  <Button alignment="CENTER" mnemonicParsing="false" onAction="#removeMenuItem" prefHeight="26.0" prefWidth="120.0" style="-fx-background-color: ffa3c3;" text="Remove Selected">
                      <HBox.margin>
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                      </HBox.margin>
                   </Button>
-                  <Button alignment="CENTER" mnemonicParsing="false" prefHeight="26.0" prefWidth="120.0" text="Place Order">
+                  <Button alignment="CENTER" mnemonicParsing="false" onAction="#addOrder" prefHeight="26.0" prefWidth="120.0" style="-fx-background-color: ffa3c3;" text="Place Order">
                      <HBox.margin>
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                      </HBox.margin>
                   </Button>
                </children>
             </HBox>
-            <Button mnemonicParsing="false" onAction="#displayMain" prefHeight="58.0" prefWidth="600.0" text="Return to Main Menu" />
+            <Button mnemonicParsing="false" onAction="#displayMain" prefHeight="58.0" prefWidth="600.0" style="-fx-background-color: ffa3c3;" text="Return to Main Menu" />
          </children>
       </VBox>
    </bottom>
