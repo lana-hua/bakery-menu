@@ -46,6 +46,10 @@ public class SeasonalDonut extends MenuItem {
      * @return the string representation of the seasonal donut order
      */
     public String toString() {
-        return quantity + " " + flavor + " Seasonal Donut for " + this.price();
+        if (quantity == 1) {
+            return quantity + " " + flavor + " Seasonal Donut for $" + this.price();
+        } else {
+            return quantity + " " + flavor + " Seasonal Donuts for $" + this.price();
+        }
     }
 }

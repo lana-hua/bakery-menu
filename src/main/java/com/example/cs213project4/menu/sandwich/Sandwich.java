@@ -18,8 +18,8 @@ public class Sandwich extends MenuItem {
 
     public Sandwich(int quantity, Bread breadType, Protein proteinType, ArrayList<AddOns> addOnsList) {
         super(quantity);
-        this.breadType = Bread.Bagel;
-        this.proteinType = Protein.Beef;
+        this.breadType = breadType;
+        this.proteinType = proteinType;
         this.addOns = addOnsList;
     }
 

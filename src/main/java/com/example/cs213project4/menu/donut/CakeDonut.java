@@ -47,6 +47,10 @@ public class CakeDonut extends MenuItem {
      * @return the string representation of the cake donut order
      */
     public String toString() {
-        return quantity + " " + flavor + " Cake Donut for " + this.price();
+        if (quantity == 1) {
+            return quantity + " " + flavor + " Cake Donut for $" + this.price();
+        } else {
+            return quantity + " " + flavor + " Cake Donuts for $" + this.price();
+        }
     }
 }

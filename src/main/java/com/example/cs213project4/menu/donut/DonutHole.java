@@ -48,6 +48,10 @@ public class DonutHole extends MenuItem {
      */
     @Override
     public String toString() {
-        return quantity + " " + flavor + " Donut Hole for " + this.price();
+        if (quantity == 1) {
+            return quantity + " " + flavor + " Donut Hole for $" + this.price();
+        } else {
+            return quantity + " " + flavor + " Donut Holes for $" + this.price();
+        }
     }
 }
