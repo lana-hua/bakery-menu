@@ -51,6 +51,7 @@ public class SandwichController {
 
         orderAddOnListView.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
 
+        breadType.valueProperty().addListener((obs, oldVal, newVal) -> updateSubtotal());
         proteinType.valueProperty().addListener((obs, oldVal, newVal) -> updateSubtotal());
         sandwichQuantity.valueProperty().addListener((obs, oldVal, newVal) -> updateSubtotal());
 
@@ -119,8 +120,6 @@ public class SandwichController {
             AddOns addOn = AddOns.fromString(s);
             if (addOn != null) {
                 addOnsList.add(addOn);
-            } else {
-                System.out.println("Invalid AddIn: " + s);
             }
         }
 
@@ -138,7 +137,6 @@ public class SandwichController {
      * @param sandwich the given sandwich order that's been added to the Current Order
      */
     private void confirmationSandwichAdded(Sandwich sandwich) {
-        System.out.println(mainController.getCurrentOrder());
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Sandwich Order Confirmation");
         alert.setHeaderText("Add to Current Order");
@@ -152,8 +150,8 @@ public class SandwichController {
      */
     private void updateSubtotal() {
         String proteinInput = proteinType.getValue();
-        String breadInput = breadType.getValue();
         Integer quantityInput = sandwichQuantity.getValue();
+        Sandwich tempSandwich = new Sandwich();
 
         int quantity = 1;
         if (quantityInput != null) {
@@ -165,7 +163,7 @@ public class SandwichController {
             return;
         }
 
-        Bread bread = Bread.valueOf(breadInput);
+        Bread bread = Bread.Bagel;
         Protein protein = Protein.valueOf(proteinInput);
 
         ArrayList<AddOns> addOnsList = new ArrayList<>();
@@ -173,7 +171,7 @@ public class SandwichController {
             AddOns addOn = AddOns.fromString(addOnString);
             if (addOn != null) addOnsList.add(addOn);
         }
-        Sandwich tempSandwich = new Sandwich(quantity, bread, protein, addOnsList);
+        tempSandwich = new Sandwich(quantity, bread, protein, addOnsList);
 
         subtotal.setText(String.format("Subtotal: $%.2f", tempSandwich.price()));
     }

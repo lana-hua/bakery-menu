@@ -50,6 +50,10 @@ public class YeastDonut extends MenuItem {
      * @return the string representation of the yeast donut order
      */
     public String toString() {
-        return quantity + " " + flavor + " Yeast Donut for " + this.price();
+        if (quantity == 1) {
+            return quantity + " " + flavor + " Yeast Donut for $" + this.price();
+        } else {
+            return quantity + " " + flavor + " Yeast Donuts for $" + this.price();
+        }
     }
 }

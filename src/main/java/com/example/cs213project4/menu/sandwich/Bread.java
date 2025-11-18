@@ -16,4 +16,13 @@ public enum Bread {
     public String toString() {
         return bread;
     }
+
+    public static Bread fromString(String text) {
+        for (Bread breadType : Bread.values()) {
+            if (breadType.bread.equals(text)) {
+                return breadType;
+            }
+        }
+        return null;
+    }
 }
