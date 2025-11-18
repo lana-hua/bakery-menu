@@ -5,6 +5,8 @@ import com.example.cs213project4.menu.Order;
 import javafx.collections.FXCollections;
 import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
+import java.io.File;
+import java.io.PrintWriter;
 
 public class OrderList {
     private int numOfOrders = 0;
@@ -41,6 +43,32 @@ public class OrderList {
         numOfOrders++;
 
     }
+    public void exportToFile(File file) {
+        try (PrintWriter writer = new PrintWriter(file)) {
+
+            writer.println("All Orders");
+
+            for (int i = 0; i < orders.size(); i++) {
+                Order order = orders.get(i);
+
+                writer.println("\nOrder #" + order.getOrderNumber());
+
+                ObservableList<MenuItem> items = order.getItems();
+                for (int j = 0; j < items.size(); j++) {
+                    MenuItem item = items.get(j);
+                    writer.println(item.toString());
+                }
+
+                writer.println("\nOrder Total: $" + String.format("%.2f", order.getTotalCost()));
+            }
+
+            writer.println("\nGrand Total: $" + String.format("%.2f", totalCost));
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
 
     public void removeItem(Order order) {
         orders.remove(order);

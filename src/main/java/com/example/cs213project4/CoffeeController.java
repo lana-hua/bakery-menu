@@ -120,7 +120,8 @@ public class CoffeeController {
 
         ArrayList<AddIns> addInsList = new ArrayList<>();
 
-        for (String s : orderAddInListView.getItems()) {
+        for (int i = 0; i < orderAddInListView.getItems().size(); i++) {
+            String s = orderAddInListView.getItems().get(i);
             AddIns addIn = AddIns.fromString(s);
             if (addIn != null) {
                 addInsList.add(addIn);
@@ -167,9 +168,12 @@ public class CoffeeController {
         CupSize size = CupSize.valueOf(sizeString);
 
         ArrayList<AddIns> addInsList = new ArrayList<>();
-        for (String s : orderAddInListView.getItems()) {
+        for (int i = 0; i < orderAddInListView.getItems().size(); i++) {
+            String s = orderAddInListView.getItems().get(i);
             AddIns a = AddIns.fromString(s);
-            if (a != null) addInsList.add(a);
+            if (a != null) {
+                addInsList.add(a);
+            }
         }
 
         Coffee tempCoffee = new Coffee(qty, size, addInsList);

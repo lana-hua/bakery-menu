@@ -58,12 +58,12 @@
             <children>
                 <HBox alignment="CENTER" prefHeight="33.0" prefWidth="600.0">
                     <children>
-                        <Button fx:id="cancelOrderSelected" alignment="CENTER" mnemonicParsing="false" prefHeight="26.0" prefWidth="120.0" style="-fx-background-color: ffa3c3;" text="Cancel Selected">
+                        <Button fx:id="cancelOrderSelected" alignment="CENTER" mnemonicParsing="false" onAction="#cancelOrder" prefHeight="26.0" prefWidth="120.0" style="-fx-background-color: ffa3c3;" text="Cancel Selected">
                             <HBox.margin>
                                 <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                             </HBox.margin>
                         </Button>
-                        <Button fx:id="exportOrders" alignment="CENTER" mnemonicParsing="false" prefHeight="26.0" prefWidth="120.0" style="-fx-background-color: ffa3c3;" text="Export Orders">
+                        <Button fx:id="exportOrders" alignment="CENTER" mnemonicParsing="false" onAction="#exportOrders" prefHeight="26.0" prefWidth="120.0" style="-fx-background-color: ffa3c3;" text="Export Orders">
                             <HBox.margin>
                                 <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                             </HBox.margin>

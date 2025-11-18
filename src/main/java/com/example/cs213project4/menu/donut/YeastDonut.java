@@ -34,7 +34,8 @@ public class YeastDonut extends MenuItem {
      */
     @Override
     public double price() {
-        return price * quantity;
+        double total = price * quantity;
+        return Math.round(total * 100.0) / 100.0;
     }
 
     /**
@@ -50,10 +51,12 @@ public class YeastDonut extends MenuItem {
      * @return the string representation of the yeast donut order
      */
     public String toString() {
+        String formattedPrice = String.format("%.2f", this.price());
+
         if (quantity == 1) {
-            return quantity + " " + flavor + " Yeast Donut for $" + this.price();
+            return quantity + " " + flavor + " Yeast Donut for $" + formattedPrice;
         } else {
-            return quantity + " " + flavor + " Yeast Donuts for $" + this.price();
+            return quantity + " " + flavor + " Yeast Donuts for $" + formattedPrice;
         }
     }
 }

@@ -123,7 +123,7 @@ public class SandwichController {
             }
         }
 
-        Bread bread = Bread.valueOf(breadInput);
+        Bread bread = Bread.fromString(breadInput);
         Protein protein = Protein.valueOf(proteinInput);
 
         Sandwich newSandwich = new Sandwich(quantity, bread, protein, addOnsList);
